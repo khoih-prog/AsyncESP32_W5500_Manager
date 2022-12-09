@@ -482,7 +482,7 @@ then connect `WebBrowser` to configurable ConfigPortal IP address, e.g. `192.168
 #include <ESP_DoubleResetDetector.h>      //https://github.com/khoih-prog/ESP_DoubleResetDetector
 
 // Number of seconds after reset during which a
-// subseqent reset will be considered a double reset.
+// subsequent reset will be considered a double reset.
 #define DRD_TIMEOUT 10
 
 // RTC Memory Address for the DoubleResetDetector to use
@@ -1005,7 +1005,7 @@ void loop()
     Serial.println("\nConfiguration portal requested.");
     digitalWrite(LED_BUILTIN, LED_ON); // turn the LED on by making the voltage LOW to tell us we are in configuration mode.
 
-    //Local intialization. Once its business is done, there is no need to keep it around
+    //Local initialization. Once its business is done, there is no need to keep it around
     AsyncESP32_W5500_Manager AsyncESP32_W5500_Manager(&webServer, &dnsServer, "ConfigOnSwitchFS");
 
     //Check if there is stored WiFi router/password credentials.
@@ -1436,7 +1436,7 @@ f.close();
 
 ### 6.3 Populate the just-read Jsonified data into the DynamicJsonDocument json object
 
-We again use the same `DynamicJsonDocument json` object to store the data we've just read fron `CONFIG_FILE`.
+We again use the same `DynamicJsonDocument json` object to store the data we've just read from `CONFIG_FILE`.
 
 Why the same complicated `DynamicJsonDocument json` object ?? Because in steps 5, we did store `Jsonified data` using the same `DynamicJsonDocument json` object. It's much easier we now use it again to facilitate the parsing of `Jsonified data` back to the data we can use easily.
 
@@ -1616,7 +1616,7 @@ void loop()
     Serial.println(F("\nConfiguration portal requested."));
     digitalWrite(LED_BUILTIN, LED_ON); // turn the LED on by making the voltage LOW to tell us we are in configuration mode.
 
-    //Local intialization. Once its business is done, there is no need to keep it around
+    //Local initialization. Once its business is done, there is no need to keep it around
     // Use this to default DHCP hostname to ESP32-XXXXXX
     //AsyncESP32_W5500_Manager AsyncESP32_W5500_manager(&webServer, &dnsServer);
     // Use this to personalize DHCP hostname (RFC952 conformed)
