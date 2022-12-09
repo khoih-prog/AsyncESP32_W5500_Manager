@@ -1526,26 +1526,26 @@ In `ConfigPortal Mode`, it starts an access point @ the current Static or DHCP I
  Connect to it by going to, e.g. `http://192.168.2.232`, you'll see this `Main` page:
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/blob/main/Images/Main.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/raw/main/Images/Main.png">
 </p>
 
 Select `Information` to enter the Info page where the board info will be shown (long page)
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/blob/main/Images/Info.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/raw/main/Images/Info.png">
 </p>
 
 
 Select `Configuration` to enter this page where you can modify its Credentials
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/blob/main/Images/Configuration_Standard.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/raw/main/Images/Configuration_Standard.png">
 </p>
 
 Enter your credentials, then click **Save**. The Credentials will be saved and the board continues, or reboots if necessary, to connect to the selected Static IP or DHCP.
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/blob/main/Images/Saved.png">
+    <img src="https://github.com/khoih-prog/AsyncESP32_W5500_Manager/raw/main/Images/Saved.png">
 </p>
 
 
