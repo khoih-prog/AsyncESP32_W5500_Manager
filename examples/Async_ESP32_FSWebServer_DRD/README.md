@@ -10,20 +10,20 @@ Connect to Config Portal @ the localIP address, e.g. `192.168.2.232`
 You'll see this `Main` page:
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/raw/main/Images/Main.png">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/blob/main/Images/Main.png">
 </p>
 
 Select `Information` to enter the Info page where the board info will be shown (long page)
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/rae/main/Images/Info.png">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/blob/main/Images/Info.png">
 </p>
 
 
 Select `Configuration` to enter this page where you can select an AP and specify its WiFi Credentials
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/raw/main/Images/Configuration_Standard.png">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/blob/main/Images/Configuration_Standard.png">
 </p>
 
 Enter your credentials, then click `Save`.
@@ -59,13 +59,13 @@ Ubuntu$ for file in \`\ls -A1\`; do curl -F "file=@$PWD/$file" http://async-esp3
 ### Demonstrating pictures
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/raw/main/examples/Async_ESP32_FSWebServer_DRD/pics/async-esp32fs.local.png">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/blob/main/examples/Async_ESP32_FSWebServer_DRD/pics/async-esp32fs.local.png">
 </p>
 
 4. Edit / Delete / Download any file in the the folder by going to http://async-esp32fs.local/edit
 
 <p align="center">
-    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/raw/main/examples/Async_ESP32_FSWebServer_DRD/pics/async-esp32fs.local_edit.png">
+    <img src="https://github.com/khoih-prog/AsyncWebServer_ESP32_W5500/blob/main/examples/Async_ESP32_FSWebServer_DRD/pics/async-esp32fs.local_edit.png">
 </p>
 
 
