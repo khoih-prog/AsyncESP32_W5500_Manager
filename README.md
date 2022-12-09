@@ -2041,8 +2041,6 @@ Local Date/Time: Thu Dec  8 16:32:42 2022
 
 #### 3. Async_ESP32_FSWebServer_DRD using LittleFS on ESP32_DEV with ESP32_W5500
 
-This is terminal debug output when running [Async_ESP32_FSWebServer_DRD](examples/Async_ESP32_FSWebServer_DRD)  on  **ESP32_W5500**.
-
 This is terminal debug output when running [Async_ESP32_FSWebServer_DRD](examples/Async_ESP32_FSWebServer_DRD)  on  **ESP32_W5500**. `Config Portal` was requested by DRD (also using **LittleFS**) to input and save Credentials.
 
 
