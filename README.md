@@ -936,7 +936,7 @@ void printLocalTime()
 AsyncWebServer webServer(HTTP_PORT);
 AsyncDNSServer dnsServer;
 
-AsyncESP32_W5500_Manager AsyncESP32_W5500_Manager(&webServer, &dnsServer);
+AsyncESP32_W5500_Manager AsyncESP32_W5500_manager(&webServer, &dnsServer);
 ```
 
 If you'd like to have a personalized hostname 
@@ -945,7 +945,7 @@ If you'd like to have a personalized hostname
 add
 
 ```cpp
-AsyncESP32_W5500_Manager AsyncESP32_W5500_Manager(&webServer, &dnsServer, "Personalized-HostName");
+AsyncESP32_W5500_Manager AsyncESP32_W5500_manager(&webServer, &dnsServer, "Personalized-HostName");
 ```
 
 then later call
@@ -1018,7 +1018,7 @@ void loop()
     digitalWrite(LED_BUILTIN, LED_ON); // turn the LED on by making the voltage LOW to tell us we are in configuration mode.
 
     //Local initialization. Once its business is done, there is no need to keep it around
-    AsyncESP32_W5500_Manager AsyncESP32_W5500_Manager(&webServer, &dnsServer, "ConfigOnSwitchFS");
+    AsyncESP32_W5500_Manager AsyncESP32_W5500_manager(&webServer, &dnsServer, "ConfigOnSwitchFS");
 
     //Check if there is stored WiFi router/password credentials.
     //If not found, device will remain in configuration mode until switched off via webserver.
