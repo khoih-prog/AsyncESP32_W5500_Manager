@@ -84,7 +84,8 @@
   * [Custom Parameters](#custom-parameters)
   * [Custom IP Configuration](#custom-ip-configuration) 
     * [Custom Station (client) Static IP Configuration](#custom-station-client-static-ip-configuration)
-  * [Custom HTML, CSS, Javascript](#custom-html-css-javascript) 
+  * [Custom HTML, CSS, Javascript](#custom-html-css-javascript)
+* [How to connect W5x00 to ESP32](#How-to-connect-W5x00-to-ESP32)
 * [Examples](#examples)
   * [Async_ConfigOnSwitch](examples/Async_ConfigOnSwitch)
   * [Async_ConfigOnSwitchFS](examples/Async_ConfigOnSwitchFS)
@@ -147,7 +148,18 @@ To appreciate the power of the [ESPAsyncWebServer](https://github.com/me-no-dev/
 
 This [**AsyncESP32_W5500_Manager** library](https://github.com/khoih-prog/AsyncESP32_W5500_Manager) currently supports these following boards:
 
- 1. **ESP32_DEV with W5500 boards** using `LwIP W5500 Ethernet`
+ 1. **ESP32_DEV boards** using `LwIP W5500 Ethernet`
+ 
+
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/ESP32_W5500_Manager/raw/main/Images/W5500.png">
+</p>
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/ESP32_W5500_Manager/raw/main/Images/W5500_small.png">
+</p>
+ 
  
 ---
 ---
@@ -773,8 +785,8 @@ IPAddress dns2IP      = IPAddress(8, 8, 8, 8);
 
 
 ```cpp
-//AsyncESP32_W5500_Manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask, dns1IP, dns2IP);
-AsyncESP32_W5500_Manager.setSTAStaticIPConfig(WM_STA_IPconfig);
+//AsyncESP32_W5500_manager.setSTAStaticIPConfig(stationIP, gatewayIP, netMask, dns1IP, dns2IP);
+AsyncESP32_W5500_manager.setSTAStaticIPConfig(WM_STA_IPconfig);
 ```
 
 ---
@@ -825,7 +837,7 @@ AsyncESP32_W5500_Manager.setSTAStaticIPConfig(WM_STA_IPconfig);
 
 
 ```cpp
-String tempTZ = AsyncESP32_W5500_Manager.getTimezoneName();
+String tempTZ = AsyncESP32_W5500_manager.getTimezoneName();
 ```
 
 ---
@@ -855,7 +867,7 @@ configTzTime(WM_config.TZ, "time.nist.gov", "0.pool.ntp.org", "1.pool.ntp.org");
 2. To convert from `_timezoneName` to `TZ`, use the function `getTZ()` as follows:
 
 ```cpp
-const char * TZ_Result = AsyncESP32_W5500_Manager.getTZ(_timezoneName);
+const char * TZ_Result = AsyncESP32_W5500_manager.getTZ(_timezoneName);
 ```
 
 The conversion depends on the stored TZs, which is using some memory, and can cause issue for ESP8266 in certain cases. Therefore, enable just the region you're interested.
@@ -939,7 +951,7 @@ AsyncESP32_W5500_Manager AsyncESP32_W5500_Manager(&webServer, &dnsServer, "Perso
 then later call
 
 ```cpp
-AsyncESP32_W5500_Manager.startConfigPortal()
+AsyncESP32_W5500_manager.startConfigPortal()
 ```
 
 While in Config Portal, connect to it using its AP IP, e.g. `192.168.2.232`, configure Credentials, then save. The settings will be saved in non volatile memory. It will then reboot and autoconnect.
@@ -1130,10 +1142,10 @@ Add parameter objects, previously created in Step 2, such as : `p_thingspeakApiK
 ```cpp
 //add all parameters here
 
-AsyncESP32_W5500_Manager.addParameter(&p_thingspeakApiKey);
-AsyncESP32_W5500_Manager.addParameter(&p_sensorDht22);
-AsyncESP32_W5500_Manager.addParameter(&p_pinSda);
-AsyncESP32_W5500_Manager.addParameter(&p_pinScl);
+AsyncESP32_W5500_manager.addParameter(&p_thingspeakApiKey);
+AsyncESP32_W5500_manager.addParameter(&p_sensorDht22);
+AsyncESP32_W5500_manager.addParameter(&p_pinSda);
+AsyncESP32_W5500_manager.addParameter(&p_pinScl);
 ```
 
 ---
@@ -1571,7 +1583,7 @@ This gets called when custom parameters have been set **AND** a connection has b
 See [Async_ConfigOnSwitchFS Example](examples/Async_ConfigOnSwitchFS).
 
 ```cpp
-AsyncESP32_W5500_Manager.setSaveConfigCallback(saveConfigCallback);
+AsyncESP32_W5500_manager.setSaveConfigCallback(saveConfigCallback);
 ```
 saveConfigCallback declaration and example
 
@@ -1594,7 +1606,7 @@ void saveConfigCallback ()
 If you need to set a timeout so the `ESP32` doesn't hang waiting to be configured for ever. 
 
 ```cpp
-AsyncESP32_W5500_Manager.setConfigPortalTimeout(120);
+AsyncESP32_W5500_manager.setConfigPortalTimeout(120);
 ```
 
 which will wait 2 minutes (120 seconds). When the time passes, the `startConfigPortal()` function will return and continue the sketch, 
@@ -1754,7 +1766,7 @@ You can set a custom IP for both AP (access point, config mode) and STA (station
 
 This will use the specified IP configuration instead of using DHCP in station mode.
 ```cpp
-AsyncESP32_W5500_Manager.setSTAStaticIPConfig(IPAddress(192,168,2,232), IPAddress(192,168,2,1), IPAddress(255,255,255,0));
+AsyncESP32_W5500_manager.setSTAStaticIPConfig(IPAddress(192,168,2,232), IPAddress(192,168,2,1), IPAddress(255,255,255,0));
 ```
 
 ---
@@ -1769,14 +1781,14 @@ The options are:
 You can use this to any html bit to the head of the ConfigPortal. If you add a `<style>` element, bare in mind it overwrites the included css, not replaces.
 
 ```cpp
-AsyncESP32_W5500_Manager.setCustomHeadElement("<style>html{filter: invert(100%); -webkit-filter: invert(100%);}</style>");
+AsyncESP32_W5500_manager.setCustomHeadElement("<style>html{filter: invert(100%); -webkit-filter: invert(100%);}</style>");
 ```
 
 - inject a custom bit of html in the configuration form
 
 ```cpp
 ESPAsync_EMParameter custom_text("<p>This is just a text paragraph</p>");
-AsyncESP32_W5500_Manager.addParameter(&custom_text);
+AsyncESP32_W5500_manager.addParameter(&custom_text);
 ```
 
 - inject a custom bit of html in a configuration form element
@@ -1785,6 +1797,42 @@ Just add the bit you want added as the last parameter to the custom parameter co
 ```cpp
 ESPAsync_EMParameter custom_mqtt_server("server", "mqtt server", "iot.eclipse", 40, " readonly");
 ```
+
+
+---
+---
+
+### How to connect W5x00 to ESP32
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            4
+```
+
+---
+
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/ESP32_W5500_Manager/raw/main/Images/W5500.png">
+</p>
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/ESP32_W5500_Manager/raw/main/Images/W5500_small.png">
+</p>
+
+
+|W5x00|<--->|ESP32|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO23|
+|MISO|<--->|GPIO19|
+|SCK|<--->|GPIO18|
+|SS|<--->|GPIO5|
+|INT|<--->|GPIO4|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
+
 
 ---
 ---
@@ -2110,7 +2158,7 @@ HHHHH HHHHHHHHHH HHHHHHHHHH HHHHHHHHHH
 Debug is enabled by default on Serial. To disable, add before `startConfigPortal()`
 
 ```cpp
-AsyncESP32_W5500_Manager.setDebugOutput(false);
+AsyncESP32_W5500_manager.setDebugOutput(false);
 ```
 
 You can also change the debugging level from 0 to 4
